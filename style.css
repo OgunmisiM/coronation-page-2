@@ -1,0 +1,188 @@
+/* General Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scroll if content is minimal */
+  font-family: "Roboto", sans-serif;
+  color: #fff; /* Default white text for initial visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+/* Background Image Container */
+.background-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/coronation.png"); /* IMPORTANT: Replace with actual image path */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7); /* Darken and blur the background image */
+  z-index: -2; /* Place behind content */
+}
+
+/* Optional: Animated Gold Overlay for extra beauty */
+.background-image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(212, 175, 55, 0.1),
+    rgba(0, 0, 0, 0.5),
+    rgba(212, 175, 55, 0.1)
+  );
+  background-size: 200% 200%; /* For gradient animation */
+  animation: goldShimmer 15s ease infinite alternate; /* Gentle shimmer animation */
+  z-index: -1; /* Place above image, below content */
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Content Overlay */
+.content-overlay {
+  position: relative;
+  z-index: 1; /* Ensure content is above background */
+  max-width: 800px;
+  padding: 30px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Slight transparent overlay for text readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Typography Styles */
+.script-text {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem; /* Larger and more prominent */
+  font-weight: normal;
+  color: #d4af37; /* Gold */
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.date {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  margin: 15px 0 40px 0;
+  letter-spacing: 2px;
+  color: #e0e0e0; /* Lighter white for contrast */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.main-title {
+  font-family: "Cinzel", serif;
+  font-size: 3rem; /* Very large and impactful */
+  letter-spacing: 5px; /* Wider spacing for elegance */
+  text-transform: uppercase;
+  margin: 5px 0;
+  line-height: 1.2;
+  color: #d4af37; /* Gold */
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow for pop */
+}
+
+.main-title.name {
+  margin-bottom: 20px; /* More space after the name */
+}
+
+.subtitle {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  color: #e0e0e0; /* Lighter white */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* RSVP Button */
+.rsvp-button {
+  display: inline-block;
+  background-color: #d4af37; /* Gold background */
+  color: #000000; /* Black text for strong contrast */
+  padding: 15px 40px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 8px; /* Slightly more rounded */
+  transition: background-color 0.4s ease, transform 0.2s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Button shadow */
+}
+
+.rsvp-button:hover {
+  background-color: #e0a800; /* Brighter gold on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .script-text {
+    font-size: 3rem;
+  }
+  .main-title {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .date {
+    font-size: 1rem;
+  }
+  .rsvp-button {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+  .content-overlay {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .script-text {
+    font-size: 2.5rem;
+  }
+  .main-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .content-overlay {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 800px) {
+  .background-image-container {
+    background-size: contain;
+    background-position: center;
+  }
+}

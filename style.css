@@ -185,4 +185,34 @@ body {
     background-size: contain;
     background-position: center;
   }
+  .rsvp-button {
+    padding: 10px 20px;
+  }
+}
+
+/* Footer - subtle, centered, low-contrast */
+.site-footer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px; /*small gap from bottom*/
+  z-index: 1000; /* above everything but unobtrusive */
+  pointer-events: auto;
+}
+.site-footer a {
+  color: rgba(255, 255, 255, 0.35); /* low-contrast white */
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 200;
+  padding: 6px 2px;
+  border-radius: 4px;
+  transition: color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+  display: inline-block;
+}
+.site-footer a:hover,
+.site-footer a:focus {
+  color: rgba(212, 175, 55, 0.9); /* subtle gold on hover */
+  transform: translateY(-2px);
+  text-decoration: none;
+  outline: none;
 }
